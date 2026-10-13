@@ -22,7 +22,7 @@ def render_todos(todos: list[Todo]) -> list[html.Li]:
 def build_layout(todos: list[Todo] | None = None) -> html.Div:
     return html.Div(
         [
-            html.H1("TODO List"),
+            html.H1("Todo List"),
             dcc.Input(id="new-todo", type="text",
                       placeholder="New todo", debounce=True),
             html.Button("Add", id="add-todo", n_clicks=0),

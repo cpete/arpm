@@ -23,3 +23,6 @@ class TodoStore:
 
     def list(self) -> list[Todo]:
         return list(self._todos)
+
+    def remove(self, todo_id: int) -> None:
+        self._todos = [t for t in self._todos if t.id != todo_id]

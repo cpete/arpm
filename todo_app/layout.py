@@ -4,7 +4,19 @@ from todo_app.store import Todo
 
 
 def render_todos(todos: list[Todo]) -> list[html.Li]:
-    return [html.Li(todo.text) for todo in todos]
+    return [
+        html.Li(
+            [
+                html.Span(todo.text),
+                html.Button(
+                    "Delete",
+                    id={"type": "delete-todo", "index": todo.id},
+                    n_clicks=0,
+                ),
+            ]
+        )
+        for todo in todos
+    ]
 
 
 def build_layout(todos: list[Todo] | None = None) -> html.Div:
